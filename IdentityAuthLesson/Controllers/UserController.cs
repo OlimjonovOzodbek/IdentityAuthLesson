@@ -59,17 +59,17 @@ namespace IdentityAuthLesson.Controllers
 
             if(user is null)
             {
-                return Unauthorized("User not Found with this email");
+                return Unauthorized("Toplimadiku jigarim");
             }
 
             var test = await _userManager.CheckPasswordAsync(user, loginDTO.Password);
 
             if (!test)
             {
-                return Unauthorized("Password invalid");
+                return Unauthorized("Password incorrect");
             }
 
-            return Ok("Welcome to the world");
+            return Ok("👌");
         }
 
         [HttpGet]
@@ -92,7 +92,7 @@ namespace IdentityAuthLesson.Controllers
 
             if (user is null)
             {
-                return Unauthorized("User not Found with this id");
+                return Unauthorized("User not Found");
             }
 
             return Ok(user);
